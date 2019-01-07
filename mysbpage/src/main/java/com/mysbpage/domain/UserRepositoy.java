@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.mysbpage.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.mysbpage.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,15 +12,16 @@ public class User {
 	private Long id;
 	
 	@Column(nullable=false, length=20)
-	private String userID;
+	private String userId;
 	private String password;
+	private String email;
 	private String name;
 	
-	public String getUserID() {
-		return userID;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getPassword() {
 		return password;
@@ -28,7 +29,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getName() {
 		return name;
 	}
@@ -38,6 +44,6 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [userID=" + userID + ", password=" + password + ", name=" + name + "]";
+		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email : " + email + "]";
 	}
 }
