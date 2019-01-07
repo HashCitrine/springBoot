@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: ktm
+Build-Jdk: 10.0.1
+Implementation-Title: test
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.test
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/test
+Created-By: Maven Integration for Eclipse
+

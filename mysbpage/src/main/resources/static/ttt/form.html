@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>회원가입</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/index.html">Spring Boot</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/form.html">회원가입</a>
+      </li>
+  
+    </ul>
+  </div>
+</nav>
+   <form method="post" action="create">
+  <div class="form-group">
+    <label for="exampleInputEmail1">아이디 (이메일 주소)</label>
+    <input type="email" class="form-control" name="userID" aria-describedby="emailHelp" placeholder="아이디 (이메일 주소)">
+    <small style="text-align: right" "id="emailHelp" class="form-text text-muted">이메일 인증을 위한 주소이며 해당 이메일은 로그인에도 사용됩니다.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">비밀번호</label>
+    <input type="password" class="form-control" name="password" placeholder="비밀번호">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputName">이름</label>
+    <input type="text" class="form-control" name="name" placeholder="이름">
+  </div>
+  <button type="submit" class="btn btn-primary">가입하기</button>
+</form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/webjars/jquery/3.3.1/dist/jquery.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/webjars/popper.js/1.14.6/dist/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
