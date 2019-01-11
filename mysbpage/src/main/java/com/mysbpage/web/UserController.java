@@ -1,6 +1,5 @@
 package com.mysbpage.web;
 
-import javax.persistence.metamodel.SetAttribute;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +63,7 @@ public class UserController {
 			return "redirect:/users/login";
 		}
 		
-		session.setAttribute("user", user); 	// session에 user라는 이름으로 user값() 저장
+		session.setAttribute("sessionedUser", user); 	// session에 user라는 이름으로 user값() 저장
 		System.out.println("Login Success");
 		return "redirect:/index";
 	}
@@ -83,16 +82,38 @@ public class UserController {
 	}
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("user");
+		session.removeAttribute("sessionedUser");
 		return "redirect:/";
 	}
-	@GetMapping("/update/{id}")
-	public String updateForm(@PathVariable Long id, Model model) {
-		model.addAttribute("user", userRepository.findById(id).get());
+	@GetMapping("/{id}/update")
+	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
+		Object tempUser = session.getAttribute("sessionedUser");
+		if(tempUser == null) {
+			return "redirect:/users/login";
+		}
+		
+		User sessionedUser = (User)tempUser;
+		// 다른 사용자의 정보 수정을 막는 방법
+		// 방법 1 : session에 저장된 user데이터의 id값을 이용해 비교
+		if(!id.equals(sessionedUser.getId())) {
+			throw new IllegalStateException("You can't access this page");
+		}
+		// 방법 2 : findById(id).get -> findById(sessionedUser.getId())
+		model.addAttribute("user", userRepository.findById(id).get());  
 		return "/user/updateForm";
 	}
 	@PutMapping("{id}")
-	public String update(@PathVariable Long id, User updateUser) {
+	public String update(@PathVariable Long id, User updateUser, HttpSession session) {
+		Object tempUser = session.getAttribute("sessionedUser");
+		if(tempUser == null) {
+			return "redirect:/users/login";
+		}
+		
+		User sessionedUser = (User)tempUser;
+		if(!id.equals(sessionedUser.getId())) {
+			throw new IllegalStateException("You can't access this page");
+		}
+		
 		User user = userRepository.findById(id).get();
 		user.update(updateUser);
 		userRepository.save(user);

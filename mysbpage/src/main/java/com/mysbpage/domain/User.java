@@ -11,11 +11,15 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(nullable=false, length=20)
+	@Column(nullable=false, length=20, unique=true)
 	private String userId;
 	private String password;
 	private String email;
 	private String name;
+	
+	public Long getId() {
+		return id;
+	}
 	
 	public String getUserId() {
 		return userId;
