@@ -5,9 +5,9 @@ import javax.servlet.http.HttpSession;
 import com.mysbpage.domain.User;
 
 public class HttpSessionUtils {
-	public static final String USER_SESSION_KEY = "sessionUser";
+	public static final String USER_SESSION_KEY = "sessionedUser";
 	
-	// 로그인 상태를 확인하기 위한 메소
+	// 로그인 상태를 확인하기 위한 메소드
 	public static boolean isLoginUser(HttpSession session) {
 		Object sessionedUser = session.getAttribute(USER_SESSION_KEY);
 		if(sessionedUser == null) {
