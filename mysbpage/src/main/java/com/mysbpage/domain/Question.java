@@ -2,13 +2,17 @@ package com.mysbpage.domain;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class Question {
@@ -23,6 +27,12 @@ public class Question {
 	private User writer;		// 객체지향적인 관계를 형성하기 위해 -> 작성된 게시글의 작성자 정보 전체(User형 데이터)를 저장
 	
 	private String title;
+	
+	@OneToMany(mappedBy="question")
+	@OrderBy("id ASC")
+	private List<Answer> answers;
+	
+	@Lob
 	private String contents;
 	private LocalDateTime createDate;
 	

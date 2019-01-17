@@ -152,7 +152,7 @@ public class UserController {
 			return "redirect:/users/login";
 		}
 		
-		session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user); 	// session에 user라는 이름으로 user값() 저장
+		session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user); 	// session에 user값 저장 (로그인)
 		System.out.println("Login Success");
 		return "redirect:/index";
 	}
