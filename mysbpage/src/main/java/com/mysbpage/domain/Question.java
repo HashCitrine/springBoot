@@ -55,4 +55,10 @@ public class Question {
 		this.title = updateTitle;
 		this.contents = updateContents;
 	}
+	public boolean isSameWirter(User loginUser) {
+		if(this.writer.toString().equals(loginUser.toString())) {
+			return true;
+		}
+		return false;
+	}
 }
